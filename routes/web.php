@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ListBarangController;
-use App\Http\Controllers\ListProductSController;
+use App\Http\Controllers\ListProductController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RegisterController;
+
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -20,16 +23,28 @@ Route::get('/user/{id}', function ($id) {
 });
 
 Route::prefix('admin')->group(function () {
-    Route::get('/dashboard', function () { 
+    Route::get('/dashboard', function () {
         return 'Admin Dashboard';
     });
 
     Route::get('/users', function () {
         return 'Admin Users';
     });
-  
+
 });
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/Home', [HomeController::class, 'home']);
+Route::get('/list_product', [ListProductController::class, 'product']);
+Route::get('dashboard', function(){
+    return view('dashboard');
+});
+
+Route::get('login', function(){
+    return view('login');
+});
+
+Route::get('register', function(){
+    return view('register');
+});

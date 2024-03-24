@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Tas</title>
     <!-- link to css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/public/styles/ModaBags.css">
     <!-- Box icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
@@ -28,5 +28,8 @@
         <i class='bx bx-search' ></i>
         <i class='bx bxs-cart-alt' ><span>0</span></i>
         </div>
+
+    <img src="{{asset('images/image1.png') }}" alt="">
+    <img src="{{asset('images/image2.png') }}" alt="">
 </body>
 </html>
