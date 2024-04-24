@@ -6,6 +6,9 @@ use App\Http\Controllers\ListBarangController;
 use App\Http\Controllers\ListProductController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PropunController;
+use App\Http\Controllers\PaymentController;
+
 
 
 Route::get('/welcome', function () {
@@ -47,4 +50,12 @@ Route::get('login', function(){
 
 Route::get('register', function(){
     return view('register');
+});
+
+Route::get('propun', function(){
+    return view('propun');
+});
+
+Route::get('payment', function(){
+    return view('payment');
 });
