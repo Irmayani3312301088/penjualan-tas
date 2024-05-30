@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ListBarangController;
@@ -8,7 +9,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PropunController;
 use App\Http\Controllers\PaymentController;
-
+use App\Http\Controllers\productsController;
+use App\Http\Controllers\DaspenController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\LaporanController;
 
 
 Route::get('/welcome', function () {
@@ -36,6 +40,7 @@ Route::prefix('admin')->group(function () {
 
 });
 
+Route::resource('products', ProductController::class);
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/Home', [HomeController::class, 'home']);
@@ -59,3 +64,30 @@ Route::get('propun', function(){
 Route::get('payment', function(){
     return view('payment');
 });
+
+Route::get('cart', function(){
+    return view('cart');
+});
+
+Route::get('detailproduct', function(){
+    return view('detailproduct');
+});
+
+Route::get('/about', function(){
+    return view('about');
+});
+Route::get('/contact', function(){
+    return view('contact');
+});
+Route::get('/produk', function(){
+    return view('produk');
+});
+
+Route::get('/daspen', function(){
+    return view('daspen');
+});
+
+Route::get('/laporan', function(){
+    return view('laporan');
+});
+

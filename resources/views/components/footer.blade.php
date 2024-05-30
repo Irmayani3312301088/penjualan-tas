@@ -1,20 +1,21 @@
-<footer class="bg-white dark:bg-gray-900">
-    <div class="mx-auto w-full max-w-screen-xl">
-        <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
+<footer class="bg-white dark:bg-gray-900 flex justify-center">
+    <div class="w-full max-w-screen-xl">
+        <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4 justify-items-center">
+
             <div>
                 <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                     <li class="mb-4">
-                        <a href="#" class=" hover:underline">Beranda</a>
+                        <a href="home.blade.php" class=" hover:underline">Beranda</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="hover:underline">Produk</a>
+                        <a href="product" class="hover:underline">Produk</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="hover:underline">Tentang Kami</a>
+                        <a href="tentangkami.blade.php" class="hover:underline">Tentang Kami</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="hover:underline">Kontak</a>
+                        <a href="contact" class="hover:underline">Kontak</a>
                     </li>
                 </ul>
             </div>
@@ -31,7 +32,7 @@
                         <a href="#" class="hover:underline">Facebook</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="hover:underline">Contact Us</a>
+                        <a href="" class="hover:underline">Contact Us</a>
                     </li>
                 </ul>
             </div>
