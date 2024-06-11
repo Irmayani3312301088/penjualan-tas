@@ -1,68 +1,60 @@
 @extends('products.layout')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Edit Product</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
-            </div>
+<div class="container mt-5">
+    <div class="bg-white rounded-lg shadow-lg p-4 max-w-md mx-auto">
+        <div class="text-2xl font-bold mb-4 text-center">
+            <h2>Edit Produk</h2>
         </div>
-    </div>
+        <div>
+            <a class="btn btn-dark" href="{{ route('products.index') }}">Back</a>
+        </div>
 
-    @if ($errors->any())
+        @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                <li>{{ $error }}</li>
                 @endforeach
             </ul>
         </div>
-    @endif
+        @endif
 
-    <form action="{{ route('products.update',$product->id) }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
+        <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
 
-         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Kode Tas:</strong>
-                    <input type="number" name="kode tas" value="{{ $product->kode_tas }}" class="form-control" placeholder="Kode tas">
-                </div>
+            <div class="form-group mb-3">
+                <strong>Kode Tas:</strong>
+                <input type="number" name="kode_tas" value="{{ $product->kode_tas }}" class="form-control" placeholder="Kode Tas">
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Nama:</strong>
-                    <input type="text" class="form-control"  name="nama" placeholder="Nama" value="{{ $product->nama }}">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Foto:</strong>
-                    <input type="file" name="foto" class="form-control" placeholder="foto">
-                    <img src="/images/{{ $product->image }}" width="300px">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Stock:</strong>
-                    <input type="number" name="stock" value="{{ $product->stock }}" class="form-control" placeholder="Stok">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Harga:</strong>
-                    <input type="number" name="harga" value="{{ $product->harga }}" class="form-control" placeholder="Harga">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
 
-    </form>
+            <div class="form-group mb-3">
+                <strong>Image:</strong>
+                <input type="file" name="image" class="form-control" placeholder="Image">
+                <img src="/images/{{ $product->image }}" width="300px" class="mt-2">
+            </div>
+
+            <div class="form-group mb-3">
+                <strong>Nama:</strong>
+                <input type="text" class="form-control" name="nama" placeholder="Nama" value="{{ $product->nama }}">
+            </div>
+
+            <div class="form-group mb-3">
+                <strong>Stock:</strong>
+                <input type="number" name="stock" value="{{ $product->stock }}" class="form-control" placeholder="Stock">
+            </div>
+
+            <div class="form-group mb-3">
+                <strong>Harga:</strong>
+                <input type="number" name="harga" value="{{ $product->harga }}" class="form-control" placeholder="Harga">
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection

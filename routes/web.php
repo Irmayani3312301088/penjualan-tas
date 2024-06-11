@@ -13,6 +13,7 @@ use App\Http\Controllers\productsController;
 use App\Http\Controllers\DaspenController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\AuthController;
 
 
 Route::get('/welcome', function () {
@@ -49,12 +50,22 @@ Route::get('dashboard', function(){
     return view('dashboard');
 });
 
-Route::get('login', function(){
-    return view('login');
+Route::controller(AuthController::class)->group(function () {
+    Route::get('register', 'register')->name('register');
+    Route::post('register', 'registerSave')->name('register.save');
+
+    Route::get('login', 'login')->name('login');
+    Route::post('login', 'loginAction')->name('login.action');
+
+    Route::post('logout', 'logout')->middleware('auth')->name('logout');
 });
 
-Route::get('register', function(){
-    return view('register');
+Route::middleware('auth')->group(function () {
+    Route::get('home', function () {
+        return view('home');
+    })->name('home');
+
+    Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
 });
 
 Route::get('propun', function(){

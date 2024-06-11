@@ -85,7 +85,7 @@
 
             </div>
             <div class="pull-right mb-2 text-left">
-                <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
+                <a class="btn btn-dark" href="{{ route('products.create') }}"> Create New Product</a>
             </div>
         </div>
     </div>
@@ -98,9 +98,11 @@
 
     <table class="table table-bordered ml-10">
         <tr>
+
+            <th>ID</th>
             <th>Kode Tas</th>
-            <th>Nama</th>
             <th>Foto</th>
+            <th>Nama</th>
             <th>Stock</th>
             <th>Harga</th>
             <th width="280px">Action</th>
@@ -109,20 +111,20 @@
         <tr>
             <td>{{ ++$i  }}</td>
             <td>{{ $product->kode_tas }}</td>
-            <td>{{ $product->nama }}</td>
             <td><img src="/images/{{ $product->image }}" width="100px"></td>
+            <td>{{ $product->nama }}</td>
             <td>{{ $product->stock }}</td>
             <td>{{ $product->harga }}</td>
             <td>
                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
 
 
-                    <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                    <a class="btn btn-dark" href="{{ route('products.edit',$product->id) }}">Edit</a>
 
                     @csrf
                     @method('DELETE')
 
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-dark">Delete</button>
                 </form>
             </td>
         </tr>
