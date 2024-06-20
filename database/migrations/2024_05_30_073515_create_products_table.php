@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->string('nama');
             $table->integer('stock')->default(0); // Menambahkan default value
             $table->integer('harga')->default(0);
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }

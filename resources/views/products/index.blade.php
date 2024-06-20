@@ -26,6 +26,7 @@
     </div>
 </nav>
 
+
 <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-pink border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
     <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
         <ul class="space-y-2 font-medium">
@@ -47,38 +48,20 @@
                 </a>
             </li>
             <li>
-            <li>
-                <a href="/propun" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bag-plus-fill flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5z" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Stok</span>
-                </a>
-            </li>
-            <li>
-            <li>
-                <a href="laporan" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-send-check-fill flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" viewBox="0 0 16 16">
-                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 1.59 2.498C8 14 8 13 8 12.5a4.5 4.5 0 0 1 5.026-4.47zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
-                        <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Laporan</span>
-                </a>
-            </li>
-            <li>
-                <a href="/login" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Sign In</span>
-                </a>
-            </li>
+            <a href="/login" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+               <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"/>
+               </svg>
+               <span class="flex-1 ms-3 whitespace-nowrap">Sign In</span>
+            </a>
+         </li>
         </ul>
     </div>
 </aside>
 
 </div>
-<div class="py-20 mt-20 px-20 crud">
+<div class="crud bg-white h-screen">
+<div class="py-20 mt-20 px-10">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -91,12 +74,13 @@
     </div>
 
     @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
     @endif
 
-    <table class="table table-bordered ml-10">
+    <div class="container mx-auto p-6 px-20 flex items-center justify-center">
+    <table class="table table-bordered ml-10 text-center ">
         <tr>
 
             <th>ID</th>
@@ -105,6 +89,7 @@
             <th>Nama</th>
             <th>Stock</th>
             <th>Harga</th>
+            <th>Deskripsi</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($products as $product)
@@ -115,23 +100,30 @@
             <td>{{ $product->nama }}</td>
             <td>{{ $product->stock }}</td>
             <td>{{ $product->harga }}</td>
+            <td>{{ $product->deskripsi }}</td>
             <td>
                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
 
 
-                    <a class="btn btn-dark" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-dark">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
 
                     @csrf
                     @method('DELETE')
-
-                    <button type="submit" class="btn btn-dark">Delete</button>
+                    <button type="submit" class="btn btn-dark">
+                        <i class="fas fa-trash-alt"></i> Delete
+                    </button>
                 </form>
             </td>
         </tr>
         @endforeach
     </table>
     </div>
+</div>
+</div>
 
-    {!! $products->links() !!}
+
+{!! $products->links() !!}
 
 @endsection

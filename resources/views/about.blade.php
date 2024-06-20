@@ -1,4 +1,4 @@
-@extends('layout.about')
+@extends('layout.home')
 
 @section('title', 'Aplikasi Web Tas')
 @section('content')

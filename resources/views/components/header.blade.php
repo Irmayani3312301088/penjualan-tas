@@ -6,11 +6,9 @@
                 <span class="self-center text-lg whitespace-nowrap dark:text-white text-black font-serif">Moda Bags</span>
             </a>
             <div class="flex items-center lg:order-3">
-                <a href="/cart">
-                    <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                        <path fill-rule="evenodd" d="M4 4a1 1 0 0 1 1-1h1.5a1 1 0 0 1 .979.796L7.939 6H19a1 1 0 0 1 .979 1.204l-1.25 6a1 1 0 0 1-.979.796H9.605l.208 1H17a3 3 0 1 1-2.83 2h-2.34a3 3 0 1 1-4.009-1.76L5.686 5H5a1 1 0 0 1-1-1Z" clip-rule="evenodd" />
-                    </svg>
-                </a><br>
+                <button id="dLabel" type="button"  data-bs-toggle="dropdown">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge bg-danger">{{ count((array) session('cart')) }}</span>
+                </button><br>
                 <a href="/login" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-gray-300 font-medium text-xs px-3 lg:px-4 py-1.5 lg:py-2 mr-1 hover:text-gray-500 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800 font-serif border-b-0">Log in</a>
                 <a class="hover:text-gray-500 text-black h-fit" href="logout.php?logout=true" onclick="return confirmLogout()">
                     <span class="material-symbols-outlined">logout</span>

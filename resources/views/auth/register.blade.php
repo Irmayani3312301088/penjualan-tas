@@ -4,7 +4,7 @@
 @section('content')
 
 
-<div class="min-h-screen flex justify-center items-center bg-pink-100">
+<div class="min-h-screen flex justify-center items-center bg-white-100">
     <div class="max-w-md mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800">
         <div class="w-96 p-6 bg-white rounded-md dark:bg-gray-800">
             <h1 class="text-3xl text-center font-bold text-gray-800 dark:text-white mb-6">Daftar</h1>

@@ -44,6 +44,7 @@ class ProductController extends Controller
             'nama' => 'required',
             'stock' => 'required|integer',
             'harga' => 'required|integer',
+            'deskripsi' => 'required',
         ]);
 
         $input = $request->all();
@@ -91,6 +92,7 @@ class ProductController extends Controller
             'nama' => 'required',
             'stock' => 'required|integer',
             'harga' => 'required|integer',
+            'deskripsi' => 'required',
         ]);
 
         $input = $request->all();

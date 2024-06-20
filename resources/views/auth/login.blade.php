@@ -3,11 +3,11 @@
 @section('title', 'Aplikasi Web Penjualan Tas')
 @section('content')
 
-<div class="min-h-screen flex justify-center items-center bg-pink-100">
+<div class="min-h-screen h-full flex justify-center items-center bg-white-100" >
     <div class="max-w-sm mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800">
         <div class="w-96 p-6 shadow-lg bg-white rounded-md dark:bg-gray-800">
             <h1 class="text-3xl text-center font-bold text-gray-800 dark:text-white mb-6">Login</h1>
-            <form action="{{route('login.action') }}" method="POST" class="max-w-sm mx-auto">
+            <form action="{{ route('login.action') }}" method="POST" class="max-w-sm mx-auto">
                 @csrf
                 <div class="mb-4">
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email or Username</label>

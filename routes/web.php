@@ -3,28 +3,18 @@
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ListBarangController;
 use App\Http\Controllers\ListProductController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\PropunController;
 use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\productsController;
-use App\Http\Controllers\DaspenController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\StripeController;
 
 Route::get('/welcome', function () {
     return view('welcome');
 });
 
-// Route::get('/listbarang/{id}/{nama}', function($id, $nama) {
-//     return view('list_barang', compact('id', 'nama'));
-// });
 
-Route::get('/listbarang', [ListBarangController::class, 'tampilkan']);
 
 Route::get('/user/{id}', function ($id) {
     return 'User dengan ID ' . $id;
@@ -38,15 +28,26 @@ Route::prefix('admin')->group(function () {
     Route::get('/users', function () {
         return 'Admin Users';
     });
-
 });
 
+Route::post('/session', [StripeController::class, 'session'])->name('session');
+Route::get('/success', [StripeController::class, 'success'])->name('success');
+Route::get('/cancel', [StripeController::class, 'cancel'])->name('cancel');
+
 Route::resource('products', ProductController::class);
-Route::get('/', [HomeController::class, 'index']);
+// Route::get('/', [ProductController::class, 'index'])->name('products.index');
+Route::get('/produk', [ProductsController::class, 'showProducts']);
+Route::get('/cart', [ProductsController::class, 'cart'])->name('cart');
+Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('add_to_cart');
+Route::patch('/cart/update', [CartController::class, 'update'])->name('update_cart');
+Route::delete('/cart/remove', [CartController::class, 'remove'])->name('remove_from_cart');
+
+Route::get('/checkout', [StripeController::class, 'checkout'])->name('checkout');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/contact', [HomeController::class, 'contact']);
-Route::get('/Home', [HomeController::class, 'home']);
+Route::get('/home', [HomeController::class, 'home']);
 Route::get('/list_product', [ListProductController::class, 'product']);
-Route::get('dashboard', function(){
+Route::get('/dashboard', function(){
     return view('dashboard');
 });
 
@@ -61,23 +62,15 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('home', function () {
+    Route::get('/home', function () {
         return view('home');
     })->name('home');
 
     Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
 });
 
-Route::get('propun', function(){
-    return view('propun');
-});
-
 Route::get('payment', function(){
     return view('payment');
-});
-
-Route::get('cart', function(){
-    return view('cart');
 });
 
 Route::get('detailproduct', function(){
@@ -86,19 +79,5 @@ Route::get('detailproduct', function(){
 
 Route::get('/about', function(){
     return view('about');
-});
-Route::get('/contact', function(){
-    return view('contact');
-});
-Route::get('/produk', function(){
-    return view('produk');
-});
-
-Route::get('/daspen', function(){
-    return view('daspen');
-});
-
-Route::get('/laporan', function(){
-    return view('laporan');
 });
 
