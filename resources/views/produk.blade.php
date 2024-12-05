@@ -7,7 +7,7 @@
     <div class="grid grid-cols-3 gap-8">
         @foreach($products as $product)
             <div class="product bg-white p-2 shadow-md rounded-md">
-                <img src="{{ asset('images/' . $product['photo']) }}" alt="Tas Image">
+                <img src="{{ asset('images/17.png' . $product['photo']) }}" alt="Tas Image">
                 <div class="details mt-4">
                     <h2 class="text-xl font-bold mb-2">{{ $product['product_name'] }}</h2>
                     <p class="price text-green-600 font-semibold mb-2">Rp {{ number_format($product['price'], 0, ',', '.') }}</p>

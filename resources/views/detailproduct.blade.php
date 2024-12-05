@@ -2,9 +2,9 @@
 
 @section('content')
 
-<div class="container mx-auto p-6">
+<div class="container mx-auto p-6 mt-20">
         <div class="flex justify-center items-center">
-            <div class="w-full max-w-4xl bg-white shadow-md rounded-lg p-6 flex">
+            <div class="w-full max-w-4xl bg-white shadow-md rounded-lg p-6 flex ">
                 <div class="w-1/2">
                     <img src="{{ asset('images/17.png') }}" alt="Product Image" class="w-full h-auto rounded">
                 </div>
