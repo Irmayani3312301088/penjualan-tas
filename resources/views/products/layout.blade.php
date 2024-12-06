@@ -20,6 +20,9 @@
 </head>
 <body>
 
+<header>
+        @include('components.has')
+    </header>
 
     <div >
         <main>

@@ -1,6 +1,7 @@
-@extends('layout.layoutt')
+@extends('layout.layout')
 
 @section('content')
+<div class="mt-12">
 <table id="cart" class="table table-hover table-condensed">
     <thead>
         <tr>
@@ -15,21 +16,28 @@
         @php $total = 0 @endphp
         @if(session('cart'))
             @foreach(session('cart') as $id => $details)
-                @php $total += $details['harga'] * $details['quantity'] @endphp
+                @php
+                    // Remove dot from price and convert to integer
+                    $price = (int)str_replace('.', '', $details['price']);
+                    $subtotal = $price * $details['quantity'];
+                    $total += $subtotal;
+                @endphp
                 <tr data-id="{{ $id }}">
                     <td data-th="Product">
                         <div class="row">
-                            <div class="col-sm-3 hidden-xs"><img src="{{ asset('img') }}/{{ $details['image'] }}" width="100" height="100" class="img-responsive"/></div>
+                            <div class="col-sm-3 hidden-xs"><img src="{{ asset('images') }}/{{ $details['photo'] }}"
+                            width="100" height="100" class="img-responsive"/></div>
                             <div class="col-sm-9">
-                                <h4 class="nomargin">{{ $details['nama'] }}</h4>
+                                <h4 class="nomargin">{{ $details['product_name'] }}</h4>
                             </div>
                         </div>
                     </td>
-                    <td data-th="Harga">Rp.{{ $details['harga'] }}</td>
+                    <td data-th="Price">Rp {{ number_format($price, 0, ',', '.') }}</td>
                     <td data-th="Quantity">
-                        <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity cart_update" min="1" />
+                        <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity cart_update"
+                         min="1" data-id="{{ $id }}" data-price="{{ $price }}" />
                     </td>
-                    <td data-th="Subtotal" class="text-center">Rp.{{ $details['harga'] * $details['quantity'] }}</td>
+                    <td data-th="Subtotal" class="text-center">Rp {{ number_format($subtotal, 0, ',', '.') }}</td>
                     <td class="actions" data-th="">
                         <button class="btn btn-danger btn-sm cart_remove"><i class="fa fa-trash-o"></i> Delete</button>
                     </td>
@@ -39,14 +47,14 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="5" style="text-align:right;"><h3><strong>Total Rp.{{ $total }}</strong></h3></td>
+            <td colspan="5" style="text-align:right;"><h3><strong>Total Rp {{ number_format($total, 0, ',', '.') }}</strong></h3></td>
         </tr>
         <tr>
             <td colspan="5" style="text-align:right;">
-                <form action="/session" method="POST">
-                <a href="{{ route('produk') }}" class="btn btn-danger"> <i class="fa fa-arrow-left"></i> Continue Shopping</a>
-                <input type="hidden" name="_token" value="{{csrf_token()}}">
-                <button class="btn btn-success" type="submit" id="checkout-live-button"><i class="fa fa-money"></i> Checkout</button>
+                <form action="{{ route('checkout.process') }}" method="POST">
+                    @csrf
+                    <a href="{{ url('/produk') }}" class="text-white bg-pink-600 hover:bg-pink-700 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"> <i class="fa fa-arrow-left"></i> Continue Shopping</a>
+                    <a href="{{ route('payment') }}" class="text-white bg-pink-600 hover:bg-pink-700 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Checkout</a>
                 </form>
             </td>
         </tr>
@@ -54,24 +62,34 @@
 </table>
 @endsection
 
-
 @section('scripts')
 <script type="text/javascript">
     $(".cart_update").change(function (e) {
         e.preventDefault();
 
         var ele = $(this);
+        var id = ele.data('id');
+        var price = parseInt(ele.data('price').toString().replace(/\./g, ''));
 
         $.ajax({
             url: '{{ route('update_cart') }}',
-            method: "PATCH",
+            method: "patch",
             data: {
                 _token: '{{ csrf_token() }}',
-                id: ele.parents("tr").attr("data-id"),
-                quantity: ele.parents("tr").find(".quantity").val()
+                id: id,
+                quantity: ele.val()
             },
             success: function (response) {
-               window.location.reload();
+                // Update subtotal
+                var newSubtotal = price * ele.val();
+                ele.parents('tr').find('.text-center').html('Rp ' + newSubtotal.toLocaleString('id-ID'));
+
+                // Update total
+                var total = 0;
+                $(".text-center").each(function () {
+                    total += parseInt($(this).text().replace(/\./g, '').replace('Rp ', ''));
+                });
+                $("tfoot strong").html('Total Rp ' + total.toLocaleString('id-ID'));
             }
         });
     });
@@ -90,11 +108,18 @@
                     id: ele.parents("tr").attr("data-id")
                 },
                 success: function (response) {
-                    window.location.reload();
+                    // Remove row
+                    ele.parents('tr').remove();
+
+                    // Update total
+                    var total = 0;
+                    $(".text-center").each(function () {
+                        total += parseInt($(this).text().replace(/\./g, '').replace('Rp ', ''));
+                    });
+                    $("tfoot strong").html('Total Rp ' + total.toLocaleString('id-ID'));
                 }
             });
         }
     });
 </script>
 @endsection
-

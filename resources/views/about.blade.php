@@ -1,25 +1,32 @@
-@extends('layout.home')
+@extends('layout.layout')
 
-@section('title', 'Aplikasi Web Tas')
+@section('title', 'Tentang Kami')
+
 @section('content')
-
-<div class="about-section bg-pink-100 py-12 mt-20">
-    <div class="container mx-auto flex flex-col lg:flex-row items-center justify-center lg:space-x-12 px-4 lg:px-0">
+<div class="about-section bg-pink-300 py-12 mt-10 w-full" style="min-height: 100vh;">
+    <div class="container mx-auto flex flex-col lg:flex-row items-start lg:space-x-12 px-4 lg:px-0">
         <div class="lg:w-1/3 w-full mb-8 lg:mb-0">
-            <img src="{{ url('/images/image1.png') }}" class="h-auto w-full rounded-lg shadow-lg" alt="Logo">
+            <img src="{{ url('/images/tas6.jpg') }}" class="h-auto w-full rounded-lg shadow-lg" alt="Logo">
         </div>
+
         <div class="lg:w-2/3">
-            <p class="text-gray-800 text-lg leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere lorem vitae est vestibulum, ut bibendum ligula tincidunt. Mauris eget ligula ac ipsum lacinia bibendum non at lorem. Nulla varius mi ut felis egestas, eu eleifend mauris pellentesque. Duis porta volutpat commodo. Vivamus sit amet dolor vel dui tempus volutpat ac et sapien.
+            <h1 class="text-4xl font-bold text-gray-800 mb-6">Tentang Kami</h1>
+            <p class="text-gray-700 text-lg leading-relaxed mb-4">
+                Selamat datang di Aplikasi Web Tas kami! Kami adalah toko online yang menyediakan berbagai macam tas berkualitas tinggi yang cocok untuk berbagai keperluan Anda. Dari tas tangan elegan hingga ransel praktis, kami menawarkan berbagai pilihan produk yang dirancang untuk memenuhi gaya dan kebutuhan Anda.
             </p>
-            <p class="text-gray-800 text-lg leading-relaxed mt-4">
-                Proin congue magna sed consequat placerat. Duis at varius nunc. Nullam nec interdum magna, quis dignissim ex. Aliquam scelerisque euismod aliquam. Nulla hendrerit turpis nec vestibulum commodo. Suspendisse consectetur, velit auctor vehicula condimentum, lectus arcu aliquam arcu, vel feugiat lectus purus in ex.
+            <p class="text-gray-700 text-lg leading-relaxed mb-4">
+                Kami percaya bahwa tas adalah lebih dari sekadar aksesoris; tas mencerminkan kepribadian dan gaya hidup. Oleh karena itu, kami berkomitmen untuk menghadirkan produk-produk terbaik dengan desain terbaru dan bahan berkualitas tinggi. Setiap tas yang kami tawarkan dipilih dengan teliti untuk memastikan kepuasan Anda.
             </p>
-            <p class="text-gray-800 text-lg leading-relaxed mt-4">
-                Fusce eget arcu et risus bibendum posuere. Phasellus rhoncus turpis justo, id interdum magna luctus non. Sed condimentum dolor vitae justo varius lobortis. Duis nec arcu rutrum, volutpat velit vel, scelerisque risus. Nulla facilisi. Donec ut dapibus quam. Donec sit amet lorem id eros maximus consequat.
+            <p class="text-gray-700 text-lg leading-relaxed mb-4">
+                Selain itu, kami juga menawarkan layanan pelanggan yang ramah dan responsif untuk membantu Anda dalam proses pembelian. Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan atau membutuhkan saran. Kami di sini untuk membantu Anda menemukan tas yang sempurna.
             </p>
+            <div class="location-info bg-white rounded-lg p-4 shadow-md">
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">Lokasi Toko</h2>
+                <p class="text-gray-600">Jl. Ahmad Yani Batam Kota. Kota Batam. Kepulauan Riau. Indonesia.</p>
+            </div>
+
+            <a href="{{ url('/contact') }}" class="mt-6 inline-block bg-pink-500 text-white py-2 px-6 rounded-full shadow-lg hover:bg-pink-600 transition duration-300">Kontak Kami</a>
         </div>
     </div>
 </div>
-
-  @endsection
+@endsection

@@ -1,8 +1,8 @@
-<footer class="bg-white dark:bg-gray-900 flex justify-center">
+<footer class="bg-gray-200 dark:bg-gray-200 flex justify-center">
     <div class="w-full max-w-screen-xl">
         <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4 justify-items-center">
             <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
+                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Tautan</h2>
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                     <li class="mb-4">
                         <a href="{{ url('/') }}" class="hover:underline">Beranda</a>
@@ -36,8 +36,8 @@
                 </ul>
             </div>
             <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                <h2 class="mb-6 text-sm font-semibold text-black-900 uppercase dark:text-white">Legal</h2>
+                <ul class="text-black-500 dark:text-black-400 font-medium">
                     <li class="mb-4">
                         <a href="#" class="hover:underline">Privacy Policy</a>
                     </li>
@@ -50,25 +50,16 @@
                 </ul>
             </div>
             <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Download</h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">iOS</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Android</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Windows</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">MacOS</a>
-                    </li>
+                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Lihat Informasi</h2>
+                <ul class="text-black-500 dark:text-black-400 font-medium">
+                    <p>Batam.</p>
+                    <p>Phone: 0814 567 890</p>
+                    <p>Email: ModaBags@gmail.com</p>
                 </ul>
             </div>
         </div>
-        <div class="px-4 py-6 bg-pink-100 dark:bg-pink-700 md:flex md:items-center md:justify-between">
-            <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+        <div class="px-4 py-6 bg-pink-300 text-center dark:bg-pink-300 md:flex md:items-center md:justify-between">
+            <span class="text-sm text-white-600 dark:text-gray-300 sm:text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">ModaBags</a>. All Rights Reserved.
             </span>
             <div class="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
                 <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
